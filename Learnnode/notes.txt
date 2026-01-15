@@ -1,0 +1,181 @@
+# Backend Development Notes (Node.js & Express.js)
+
+---
+
+## 1. Initializing a Node.js Project
+
+### `npm init -y`
+
+- `npm init` is used to **initialize a Node.js project**.
+- It creates a `package.json` file.
+- The `-y` flag means:
+  - Answer **YES to all questions automatically**
+  - Uses default values (name, version, entry file, etc.)
+
+```bash
+npm init -y
+This is the first step of any Node.js backend project.
+
+2. What is Backend Development?
+Backend development means working on server-side software.
+
+It focuses on things you cannot see on a website, such as:
+Server logic
+Database operations
+Authentication
+APIs
+Security
+
+
+Frontend = UI (what users see)
+Backend = Logic + Data (what runs behind the scenes)
+
+
+3. What is Node.js?
+Node.js is a JavaScript runtime environment
+It allows JavaScript to run outside the browser
+Used to build servers and APIs
+
+
+Node.js is NOT Java
+It is JavaScript running on the server.
+
+
+4. npm Scripts (npm run dev)
+If you write this in package.json:
+
+"scripts": {
+  "dev": "nodemon index.js"
+}
+Then running:
+npm run dev
+Executes the dev script
+Starts your application using nodemon
+
+
+5. What is a Server?
+A server is a computer or program that:
+Provides services, data, or resources
+To another computer called a client
+Over the internet
+Example:
+
+Client → Browser / Mobile App
+Server → Node.js backend
+
+
+6. First Server in Node.js (HTTP Module)
+Using Node.js http module:
+We manually handle routes
+We use if-else conditions
+if (req.url === "/") {
+  // home route
+} else if (req.url === "/about") {
+  // about route
+}
+This works, but becomes messy for large apps.
+
+
+
+7. Routing
+Routing is the process of defining:
+How an application responds
+To different client requests
+Based on the URL and HTTP method
+Example:
+GET /users
+POST /login
+
+
+8. HTTP Methods
+HTTP methods define what action the client wants to perform.
+GET → Retrieve data from server
+POST → Send data to server
+PUT → Update an existing resource
+PATCH → Partially update a resource
+DELETE → Delete a resource
+
+
+
+9. Introduction to Express.js
+Express.js is the most popular framework for Node.js
+It simplifies backend development
+Provides:
+Easy routing
+Middleware support
+Clean project structure
+
+Instead of writing everything manually with http,Express gives shortcuts and structure.
+
+
+
+10. Installing Express.js
+npm install express
+
+11. Nodemon
+Nodemon automatically restarts the server
+When you change code
+npm install nodemon
+Used mainly in development mode.
+
+
+12. Postman
+Postman is a tool to test APIs
+
+Used to send:
+GET
+POST
+PUT
+DELETE requests
+Very useful when no frontend exists
+
+
+13. Middleware
+Middleware is a function that:
+Runs between request and response
+Can modify req or res
+Example:
+app.use(express.json());
+This allows the server to read JSON data from request body.
+
+
+14. Sending Data in Express Using Body
+Data sent in request body Used in POST / PUT
+
+req.body Using Params
+Route parameters are dynamic values in URL
+
+app.get("/user/:id", ...)
+req.params
+Example:
+/user/5
+
+
+Using Query Parameters Sent after ? in URL
+Used for filtering and searching
+
+http://localhost:3000/search?name=asit&age=31
+req.query
+
+Query parameters are key-value pairs.
+
+15. RESTful API
+A RESTful API is a way for systems to communicate using standard HTTP methods.
+
+Flow:
+Client (website / mobile app) sends request
+Server receives and processes request
+Server sends response (usually JSON)
+REST uses:
+GET
+POST
+PUT
+DELETE
+Data is usually exchanged in JSON format.
+
+
+16. Connecting Backend with Frontend
+Frontend sends HTTP requests (fetch / axios)
+Backend processes and sends JSON response
+This connects UI with database and logic
+
