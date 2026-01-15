@@ -1,0 +1,53 @@
+when i try to connnect thr  fronted  to  backned  there is  an  error that  might  we occure  the  erroer  was  cros  error 
+
+cross  origin  resourse  sharing  in  expres 
+ cros  is a  securiyt   feature  in  web  bbrewaser  thay  prevent  request  from  diffrent  ofigin  unless  explicitly  allowaed  by  the  server 
+ 
+ same  origin  policy  restricts  request  from  diffreant  origin  { protocal  domai  or port} agr  domain chage hai  to error or port  hai  roh  error 
+
+ cors  allows  server  to  specify  to  specify  who  can naccess  theire  resourse 
+it behave like a middleware in backned  
+ install  it  use  
+ npm  i cors 
+
+function App() {
+
+  async function getRes() {
+    const res = await fetch("http://localhost:3000/")
+    let data = res.json();
+    console.log(data);
+  }
+
+  return (
+    <div>
+      <button  onClick={()=> getRes()}> Send</button>
+    </div>
+  )
+}
+
+
+
+
+insted of  using the  fetch api  we usi the  axios  for the  fethcing the  backned data to  the  fronted
+
+middleware status  code  and  http headers 
+
+middleware  runs  before  the  route  handler  
+middleware  must call  next()  to  continue  to  the  next  function 
+  if   middleware  does  not  call  next()  the request  will  hang .
+    jthere  are  some  build  in  consotm  ,  third  party  middleware etc ,
+
+     app.use(cors()); --  third  party middleware
+     app.use(expres.json()) --  build  in  middleware
+
+      app.use((req,  res ,  next ) = >{
+        console.log("costome  middleware");     
+        next();    --         custom  middleware
+      })
+status code  
+  informational  response 100 -190
+  successfull  response   200 -  299
+   redirection  messages  -  300 -  399 
+    client  error  response  400 -499 
+      server error  response -  500 -  599
+      
