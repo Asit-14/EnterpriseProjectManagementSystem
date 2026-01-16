@@ -5,7 +5,6 @@ const app = express();
 const port = 3000;
 
 // MongoDB connection string
-const mongoURL = "mongodb+srv://learndb:learndb%40123@learn.psed38k.mongodb.net/learn?retryWrites=true&w=majority";
 
 const connectDB = async () => {
     try {
