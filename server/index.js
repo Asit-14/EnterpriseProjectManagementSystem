@@ -1,43 +1,75 @@
-import express from "express";
-import cors from "cors";
-
-const app = express();
-const port = 3000;
+import  express  from 'express';
+import cors from 'cors';
+let app = express();
 
 app.use(express.json());
 
-// Allow only frontend origin
-// app.use(cors({
-//     origin: "http://localhost:5173"
-// }));
+// let password = "12321";
+
+const port = 8000;
+
+
+// app.use((req, res, next) => {
+//     if (req.body.pass != password) {
+//         res.send("password does note match");
+//     }                                                 //  coustom  middleware
+//     next();
+// })
 
 // app.get("/", (req, res) => {
 //     res.json({
-//         name: "Asit Kumar",
-//         class: "B.Tech",
-//         age: 33,
-//         city: "Noida"
-//     });
-// });
+//         name: "Asit Kumar ",
+//         age: 32,
+//         city: "noida"
+//     })
+// })
+
 
 // app.post("/", (req, res) => {
-//     console.log(req.body);   // ✅ data received here
-//     res.send({ success: true });
-// });
-
-const password = "asit1234";
-app.use((req, res, next) => {
-    if (req.body.pass != password) {
-        res.send("password  does not  same ")
-    }
-    next();
-})
+    
+//     console.log(req.body);
+//     res.status(200).send({               //  used for the  custom  status
+//         success: true
+//     })
+// })
 
 
-app.post("/", (req, res) => {
-    res.status.send({success : true})
-})
+// to  print  ithe  header
+
+// app.get("/", (req, res) => {
+//     console.log(req.get("user-agent")); //
+//     res.json({
+//         name: "Asit kumar",
+//         age :21
+//     })
+    
+// })
+
+// coustomer  header 
+app.get("/", (req, res) => {
+    res.set("x-username", "asitkumar");  //  key  value  for a  beter  understiagin  use x-name of  heaader  for beteer  understanding
+
+    res.json({
+        name: "asit kumar",
+        age: 21
+    });
+});
+
+
+
+// remove  the  specific  hear that  are coustom  
+
+app.get("/", (req, res) => {
+    res.removeHeader("X-Powered-By");
+    res.json({
+        message: "Header removed"
+    });
+});
+
+
+
 
 app.listen(port, () => {
-    console.log("Server running on port 3000");
-});
+    console.log("server  is started .....");
+    
+})
