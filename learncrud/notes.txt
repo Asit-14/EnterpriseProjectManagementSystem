@@ -1,0 +1,77 @@
+
+ introduction  to  mogogdb  
+
+   what  is  database........
+
+   a  database  is  a  collection  of data that  allows  storing  , managing   adn  retriving  information  efficiently
+    common  used  databasess 
+
+    1.  sql  databases   -  mysql ,  postgresql (store data in table )
+    2.  noSql  database -- mongodb  (document  based )
+
+
+    mongodb  is  a  nosql  databases  that  store  data in  flexibale  json  like  format  insted  of  table 
+
+    //  collection 
+    [
+      {
+        "id" :1,  
+        "name" :"asit"          doc1 
+      },
+      {
+        "id" :1,                 doc2 
+        "name" :"asit"
+      }
+    ]
+
+
+mogoose  is  an  dom (document  data modeling  )  library  for  
+mongodb and nodejs  .
+
+it  help  developer  intract  with  mogogdb  using  an  easy  an  starting
+structure  approcah  by  defining  schemas  and  models 
+
+
+install  mogoose using 
+
+ npm  install  mongoose
+
+ 
+
+ steps  for  connecting  mogogdb 
+
+   set up  mogogdb 
+       |
+install  mongoose
+       |
+connect  DB
+         | 
+Design  schemas
+| 
+create  modile  based  on schemas  for  performaing  crud operation 
+
+
+schema  --  a  schema in mongoose  defines  the structure  of  document  within  a   mongodb  collection -
+
+ it  speecifiees  the field  theire  types  validation  rules  and  default   value ,
+
+
+ model  - 
+
+ a  model  is  wrapper  for  schema  and  provides  an  interface  to  intract  mognoDb  collection 
+
+ export  let user =  mogoose.model(
+  "user", userSchema 
+ )
+
+
+ import  mongoose  from  "mongoose 
+ const  userSchema  =  new  mongoose.schema({
+  name :{
+    types :String ,
+    required :true 
+  },
+  emai
+ },{
+  timeStamp : true,
+ })
