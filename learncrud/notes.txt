@@ -75,3 +75,12 @@ schema  --  a  schema in mongoose  defines  the structure  of  document  within 
  },{
   timeStamp : true,
  })
+
+
+ query  operators   - 
+  used  in  find() , findOne() ,  and  aggregate() ,  to filter  document
+
+1- comparison operation
+2 - logical  operators
+3 -  update operators 
+used  in updateone(),  updateMany() ,  and findOneAndUpdate();
